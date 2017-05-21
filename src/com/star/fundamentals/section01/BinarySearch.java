@@ -1,7 +1,7 @@
 package com.star.fundamentals.section01;
 
 import edu.princeton.cs.algs4.In;
-import edu.princeton.cs.algs4.StdOut;
+import edu.princeton.cs.algs4.Out;
 
 import java.util.Arrays;
 
@@ -12,12 +12,14 @@ public class BinarySearch {
         int[] whitelist = new In(args[0]).readAllInts();
         int[] target = new In(args[1]).readAllInts();
 
+        Out out = new Out(args[2]);
+
         Arrays.sort(whitelist);
 
         for (int key : target) {
 
             if (rank(key, whitelist) == -1) {
-                StdOut.println(key);
+                out.println(key);
             }
         }
     }
