@@ -2,17 +2,15 @@ package com.star.fundamentals.section03;
 
 import java.util.Iterator;
 
-public class Bag<Item> implements Iterable<Item> {
+public class Queue<Item> implements Iterable<Item> {
 
     private Node first;
+    private Node last;
     private int n;
 
     private class Node {
         Item item;
         Node next;
-    }
-
-    public Bag() {
     }
 
     public boolean isEmpty() {
@@ -23,15 +21,36 @@ public class Bag<Item> implements Iterable<Item> {
         return n;
     }
 
-    public void add(Item item) {
+    public void enqueue(Item item) {
 
-        Node oldFirst = first;
+        Node oldLast = last;
 
-        first = new Node();
-        first.item = item;
-        first.next = oldFirst;
+        last = new Node();
+        last.item = item;
+        last.next = null;
+
+        if (isEmpty()) {
+            first = last;
+        } else {
+            oldLast.next = last;
+        }
 
         n++;
+    }
+
+    public Item dequeue() {
+
+        Item item = first.item;
+
+        first = first.next;
+
+        if (isEmpty()) {
+            last = null;
+        }
+
+        n--;
+
+        return item;
     }
 
     @Override

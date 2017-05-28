@@ -2,7 +2,7 @@ package com.star.fundamentals.section03;
 
 import java.util.Iterator;
 
-public class Bag<Item> implements Iterable<Item> {
+public class Stack<Item> implements Iterable<Item> {
 
     private Node first;
     private int n;
@@ -10,9 +10,6 @@ public class Bag<Item> implements Iterable<Item> {
     private class Node {
         Item item;
         Node next;
-    }
-
-    public Bag() {
     }
 
     public boolean isEmpty() {
@@ -23,7 +20,7 @@ public class Bag<Item> implements Iterable<Item> {
         return n;
     }
 
-    public void add(Item item) {
+    public void push(Item item) {
 
         Node oldFirst = first;
 
@@ -32,6 +29,17 @@ public class Bag<Item> implements Iterable<Item> {
         first.next = oldFirst;
 
         n++;
+    }
+
+    public Item pop() {
+
+        Item item = first.item;
+
+        first = first.next;
+
+        n--;
+
+        return item;
     }
 
     @Override
