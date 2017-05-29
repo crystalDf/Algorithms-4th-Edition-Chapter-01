@@ -13,6 +13,10 @@ public class Order {
             queue.enqueue(StdIn.readInt());
         }
 
+        for (int i : queue) {
+            StdOut.println(i);
+        }
+
         int n = queue.size();
 
         for (int i = 0; i < n; i++) {

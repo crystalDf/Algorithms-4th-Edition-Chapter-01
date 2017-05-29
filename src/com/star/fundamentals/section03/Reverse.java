@@ -16,5 +16,11 @@ public class Reverse {
         for (int i : stack) {
             StdOut.println(i);
         }
+
+        int n = stack.size();
+
+        for (int i = 0; i < n; i++) {
+            StdOut.println(stack.pop());
+        }
     }
 }
