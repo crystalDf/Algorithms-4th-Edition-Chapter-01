@@ -64,10 +64,5 @@ public class Stack<Item> implements Iterable<Item> {
 
             return item;
         }
-
-        @Override
-        public void remove() {
-
-        }
     }
 }
