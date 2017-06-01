@@ -1,5 +1,8 @@
 package com.star.fundamentals.section03;
 
+import edu.princeton.cs.algs4.StdIn;
+import edu.princeton.cs.algs4.StdOut;
+
 import java.util.Iterator;
 
 public class Queue<Item> implements Iterable<Item> {
@@ -75,5 +78,21 @@ public class Queue<Item> implements Iterable<Item> {
 
             return item;
         }
+    }
+
+    public static void main(String[] args) {
+        Queue<String> queue =
+                new Queue<>();
+
+        while (!StdIn.isEmpty()) {
+            String item = StdIn.readString();
+            if (!"-".equals(item)) {
+                queue.enqueue(item);
+            } else if (!queue.isEmpty()) {
+                StdOut.print(queue.dequeue() + " ");
+            }
+        }
+
+        StdOut.println("(" + queue.size() + " left on stack)");
     }
 }

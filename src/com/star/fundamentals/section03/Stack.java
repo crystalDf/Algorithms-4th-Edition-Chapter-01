@@ -1,5 +1,8 @@
 package com.star.fundamentals.section03;
 
+import edu.princeton.cs.algs4.StdIn;
+import edu.princeton.cs.algs4.StdOut;
+
 import java.util.Iterator;
 
 public class Stack<Item> implements Iterable<Item> {
@@ -64,5 +67,21 @@ public class Stack<Item> implements Iterable<Item> {
 
             return item;
         }
+    }
+
+    public static void main(String[] args) {
+        Stack<String> stack =
+                new Stack<>();
+
+        while (!StdIn.isEmpty()) {
+            String item = StdIn.readString();
+            if (!"-".equals(item)) {
+                stack.push(item);
+            } else if (!stack.isEmpty()) {
+                StdOut.print(stack.pop() + " ");
+            }
+        }
+
+        StdOut.println("(" + stack.size() + " left on stack)");
     }
 }
