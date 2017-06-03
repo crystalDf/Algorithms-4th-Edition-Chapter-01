@@ -12,7 +12,7 @@ public class ThreeSum {
         StdOut.println(count(array));
     }
 
-    private static int count(int[] array) {
+    public static int count(int[] array) {
 
         int n = array.length;
         int count = 0;
